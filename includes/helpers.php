@@ -9,6 +9,14 @@ function jsonResponse(array $payload, int $status = 200): void
     exit;
 }
 
+/**
+ * Backward-compatible snake_case alias for API handlers.
+ */
+function json_response(array $payload, int $status = 200): void
+{
+    jsonResponse($payload, $status);
+}
+
 function randomTemplate(array $templates): string
 {
     if (count($templates) === 0) {
