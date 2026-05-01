@@ -37,6 +37,30 @@ if ($basePath === '/' || $basePath === '.') {
           <input id="topic-input" type="text" placeholder="Enter your topic…" required />
           <button type="submit" class="btn btn-primary">Generate Script</button>
         </form>
+        <div class="generator-output">
+          <div class="section-head">
+            <h2>Generated Scripts</h2>
+            <p>Your AI-generated scripts appear here instantly.</p>
+          </div>
+          <div id="generator-results" class="grid-3">
+            <article class="card script-card">
+              <h3>Script #1: Productivity</h3>
+              <p class="script-text">Hook: "If you have 10 minutes, you can reset your entire day."<br />Body: "Here are 3 micro-habits I use before noon..."<br />CTA: "Comment 'RESET' and I'll send my routine."</p>
+              <button class="btn btn-copy" data-copy-target="0">Copy Script</button>
+            </article>
+            <article class="card script-card">
+              <h3>Script #2: Fitness</h3>
+              <p class="script-text">Hook: "Most people fail fat loss in week 2 for this reason."<br />Body: "Stop doing all-or-nothing workouts. Do this instead..."<br />CTA: "Follow for daily 30-second fitness tips."</p>
+              <button class="btn btn-copy" data-copy-target="1">Copy Script</button>
+            </article>
+            <article class="card script-card">
+              <h3>Script #3: Business</h3>
+              <p class="script-text">Hook: "This one content framework doubled my DMs."<br />Body: "Use Problem -&gt; Proof -&gt; Pitch in every short video..."<br />CTA: "Save this and send it to a creator friend."</p>
+              <button class="btn btn-copy" data-copy-target="2">Copy Script</button>
+            </article>
+          </div>
+          <p id="generator-feedback" class="feedback" role="status" aria-live="polite"></p>
+        </div>
         <a class="btn btn-secondary cta-inline" href="#cta">Try for Free</a>
       </div>
     </section>
@@ -77,7 +101,7 @@ if ($basePath === '/' || $basePath === '.') {
         <h2>Example Output</h2>
         <p>Tap copy and use these formats as inspiration.</p>
       </div>
-      <div id="scripts-list" class="grid-3">
+      <div class="grid-3">
         <article class="card script-card">
           <h3>Script #1: Productivity</h3>
           <p class="script-text">Hook: "If you have 10 minutes, you can reset your entire day."<br />Body: "Here are 3 micro-habits I use before noon..."<br />CTA: "Comment 'RESET' and I'll send my routine."</p>
@@ -94,7 +118,6 @@ if ($basePath === '/' || $basePath === '.') {
           <button class="btn btn-copy" data-copy-target="2">Copy Script</button>
         </article>
       </div>
-      <p id="generator-feedback" class="feedback" role="status" aria-live="polite"></p>
     </section>
 
     <section class="container reveal" id="testimonials">

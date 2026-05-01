@@ -32,7 +32,7 @@
 
   const generatorForm = document.getElementById("generator-form");
   const topicInput = document.getElementById("topic-input");
-  const scriptsList = document.getElementById("scripts-list");
+  const scriptsList = document.getElementById("generator-results");
   const generatorFeedback = document.getElementById("generator-feedback");
   const emailForm = document.getElementById("email-form");
   const emailInput = document.getElementById("email-input");
