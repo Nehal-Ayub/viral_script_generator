@@ -1,4 +1,14 @@
 (() => {
+  const appBasePath =
+    document.body?.dataset?.basePath && document.body.dataset.basePath !== "/"
+      ? document.body.dataset.basePath
+      : "";
+
+  function buildApiUrl(path) {
+    const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+    return `${appBasePath}${normalizedPath}`;
+  }
+
   const defaultScripts = [
     {
       title: "Script #1: Productivity",
@@ -92,7 +102,7 @@
       }
 
       try {
-        const response = await fetch("api/generate.php", {
+        const response = await fetch(buildApiUrl("/api/generate.php"), {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ topic }),
@@ -140,7 +150,7 @@
       emailFeedback.textContent = "";
 
       try {
-        const response = await fetch("api/subscribe.php", {
+        const response = await fetch(buildApiUrl("/api/subscribe.php"), {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email }),

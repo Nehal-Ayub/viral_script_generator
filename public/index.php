@@ -1,5 +1,11 @@
 <?php
 declare(strict_types=1);
+
+$scriptName = (string) ($_SERVER['SCRIPT_NAME'] ?? '/index.php');
+$basePath = str_replace('\\', '/', dirname($scriptName));
+if ($basePath === '/' || $basePath === '.') {
+    $basePath = '';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,9 +17,9 @@ declare(strict_types=1);
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <link rel="stylesheet" href="<?= htmlspecialchars($basePath, ENT_QUOTES, 'UTF-8') ?>/assets/css/styles.css" />
 </head>
-<body>
+<body data-base-path="<?= htmlspecialchars($basePath, ENT_QUOTES, 'UTF-8') ?>">
   <div class="bg-glow"></div>
   <header class="topbar container">
     <div class="brand">Viral Script Generator</div>
@@ -138,6 +144,6 @@ declare(strict_types=1);
     </div>
   </footer>
 
-  <script src="/assets/js/app.js"></script>
+  <script src="<?= htmlspecialchars($basePath, ENT_QUOTES, 'UTF-8') ?>/assets/js/app.js"></script>
 </body>
 </html>
